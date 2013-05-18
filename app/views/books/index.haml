@@ -1,0 +1,20 @@
+.page-header
+  %form.form-search.pull-right{ action: '', method: 'get' }
+    %input.input-medium.search-query{ type: 'text', name: 'isbn', value: params[:isbn], placeholder: 'ISBN' }
+    %button.btn{ type: 'submit' } Search
+    - if params[:isbn].present?
+      =link_to 'Cancel', books_path, class: 'btn'
+  %h1 Books
+
+%section.books
+  - if @books.present?
+    %ul.thumbnails
+      - @books.each do |book|
+        %li.span4
+          %div.thumbnail
+            = render book
+    = paginate @books
+
+  - elsif params[:isbn].present?
+    %p Book not found.
+    %p= link_to 'Add it?', new_book_path(isbn: params[:isbn])

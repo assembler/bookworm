@@ -6,7 +6,11 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'devise'
+gem 'devise', '~> 2.2.3'
+gem 'haml-rails', '~> 0.4'
+gem 'simple_form', '~> 2.1.0'
+gem 'kaminari', '~> 0.14.1'
+gem 'strong_parameters', '~> 0.2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,12 +25,14 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.13.0'
+  gem 'letter_opener'
 end
 
 group :test do
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'capybara'
+  gem 'capybara', '~> 2.0.0'
+  gem 'valid_attribute'
 end
 
 gem 'jquery-rails'

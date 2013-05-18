@@ -1,4 +1,7 @@
 Bookworm::Application.routes.draw do
-  devise_for :users
-  root to: 'home#index'
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
+
+  resources :books
+
+  root to: 'books#index'
 end

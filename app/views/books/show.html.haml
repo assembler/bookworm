@@ -1,0 +1,8 @@
+.page-header
+  =link_to 'Back to Listing', books_path, class: 'pull-right btn'
+  %h1
+    = @book.title
+    %small ISBN: #{@book.isbn}
+
+%section.readings
+  Read by: ....
