@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,6 +22,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'capybara'
 end
 
 gem 'jquery-rails'
