@@ -23,6 +23,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find params[:id]
     @readings = @book.readings
+    @rating = RatingCalculator.new(@readings.map(&:rating)).call
     @reader = Reader.new(current_user)
   end
 

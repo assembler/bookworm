@@ -4,6 +4,9 @@
     = @book.title
     %p
       %small ISBN: #{@book.isbn}
+    - if @rating
+      %p
+        %small Rating: #{@rating.round(1)} out of #{Reading::RATINGS.max}
 
 - if user_signed_in? && !@reader.read?(@book)
   %p.pull-right
