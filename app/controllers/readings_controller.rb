@@ -6,6 +6,13 @@ class ReadingsController < ApplicationController
     redirect_to book_path(@book)
   end
 
+  def update
+    reading = Reading.find params[:id]
+    reading.rating = params[:reading][:rating]
+    reading.save!
+    redirect_to book_path(@book)
+  end
+
 private
   def load_book
     @book = Book.find params[:book_id]

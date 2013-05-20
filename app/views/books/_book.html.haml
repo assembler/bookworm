@@ -1,4 +1,5 @@
 %article.book
   %p= link_to book.title, book
   %span.label ISBN: #{book.isbn}
+  %span.label Read by #{pluralize book.readings_count, 'person'}
 

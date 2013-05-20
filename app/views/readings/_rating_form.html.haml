@@ -1,0 +1,3 @@
+= simple_form_for [reading.book, reading], html: { class: 'form-vertical well' } do |form|
+  = form.input :rating, collection: Reading::RATINGS
+  = form.submit 'Rate it', class: 'btn btn-success'

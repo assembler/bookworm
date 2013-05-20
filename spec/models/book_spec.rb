@@ -11,4 +11,12 @@ describe Book do
       build(:book, isbn: existing_book.isbn).should_not have_valid(:isbn)
     end
   end
+
+  describe 'readings count' do
+    it 'shows readings count' do
+      book = create(:book)
+      create_list(:reading, 2, book: book)
+      expect(book.readings_count).to eq(2)
+    end
+  end
 end

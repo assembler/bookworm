@@ -1,9 +1,18 @@
 class Reader
-  def initialize(user)
+  def initialize(user, reading_finder=Reading.public_method(:get))
     @user = user
+    @reading_finder = reading_finder
+  end
+
+  def reading_of(book)
+    if @user.guest?
+      nil
+    else
+      @reading_finder.(book, @user)
+    end
   end
 
   def read?(book)
-    @user && Reading.where(user_id: @user, book_id: book).exists?
+    !!reading_of(book)
   end
 end

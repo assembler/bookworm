@@ -24,4 +24,11 @@ describe Reading do
       expect(build(:reading, rating: 5)).to be_rated
     end
   end
+
+  describe '.get(book, user)' do
+    it 'finds reading' do
+      reading = create(:reading)
+      expect(described_class.get(reading.book, reading.user)).to eq(reading)
+    end
+  end
 end

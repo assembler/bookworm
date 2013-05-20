@@ -19,4 +19,8 @@ class Reading < ActiveRecord::Base
   def rated?
     rating.present?
   end
+
+  def self.get(book, user)
+    where(book_id: book, user_id: user).first
+  end
 end

@@ -10,7 +10,7 @@
     = link_to 'I have read this book', book_readings_path(@book), method: :post, class: 'btn btn-info'
 
 - unless @readings.empty?
-  %section.readings.well
+  %section.readings
     %h4 Read by:
     %ul
       - @readings.each do |reading|
