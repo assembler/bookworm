@@ -27,6 +27,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.0'
   gem 'letter_opener'
+  gem 'ffaker'
 end
 
 group :test do

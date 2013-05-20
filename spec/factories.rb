@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence(:email) { |n| "user#{n}@email.com" }
+  sequence(:email) { |n| Faker::Internet::email }
   sequence(:isbn) { |n| "%08d-%03d" % [rand(10**8), n] }
 
   factory :user do
@@ -10,7 +10,7 @@ FactoryGirl.define do
 
   factory :book do
     isbn
-    sequence(:title) { |n| "Book #{n}"}
+    title { Faker::Lorem.sentence }
   end
 
   factory :reading do
