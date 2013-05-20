@@ -5,8 +5,6 @@ class RatingPolicy
   end
 
   def can_rate?
-    !@user.guest? &&
-     @reading.user == @user &&
-    !@reading.rated?
+    @user.admin? || (!@user.guest? && @reading.user == @user && !@reading.rated?)
   end
 end

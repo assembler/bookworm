@@ -6,6 +6,11 @@ FactoryGirl.define do
     email
     password 'passwd'
     password_confirmation 'passwd'
+    admin false
+
+    trait :admin do
+      admin true
+    end
   end
 
   factory :book do

@@ -10,7 +10,7 @@ class ReadingsController < ApplicationController
     reading = Reading.find params[:id]
     reading.rating = params[:reading][:rating]
     reading.save!
-    redirect_to book_path(@book)
+    redirect_to book_path(@book), notice: "Thank you for rating!"
   end
 
 private

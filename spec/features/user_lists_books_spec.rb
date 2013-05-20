@@ -40,10 +40,8 @@ feature 'User lists books' do
 
     within 'section.books' do
       expect(page).to have_content /book not found/i
-      click_link 'Add it?'
+      expect(page).to have_link 'Add it?'
     end
-
-    expect(page).to have_field('ISBN', with: '0000-01')
   end
 
   scenario 'seeing book details' do

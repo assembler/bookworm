@@ -1,6 +1,6 @@
 %article.reading
   #{reading.username}
-  - if reading.rated?
-    (rating: #{reading.rating})
-  - elsif RatingPolicy.new(reading, current_user).can_rate?
+  - if RatingPolicy.new(reading, current_user).can_rate?
     = render 'readings/rating_form', reading: reading
+  - elsif reading.rated?
+    (rating: #{reading.rating})

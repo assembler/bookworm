@@ -2,19 +2,23 @@ require_relative '../../app/models/rating_policy'
 
 describe RatingPolicy do
   let(:reading) { stub() }
-  let(:user) { stub() }
+  let(:user) { stub(guest?: true, admin?: false) }
   subject(:policy) { described_class.new(reading, user) }
 
 
   context 'guest user' do
-    let(:user) { stub(guest?: true) }
+    before do
+      user.stub(guest?: true)
+    end
     it 'cannot rate the book' do
       expect(policy.can_rate?).to be_false
     end
   end
 
   context 'authenticated user' do
-    let(:user) { stub(guest?: false) }
+    before do
+      user.stub(guest?: false)
+    end
 
     it 'cannot rate via other people readings' do
       reading.stub(user: 'joe')
@@ -33,6 +37,15 @@ describe RatingPolicy do
         reading.stub(rated?: false)
         expect(policy.can_rate?).to be_true
       end
+    end
+  end
+
+  context 'admin' do
+    before do
+      user.stub(admin?: true)
+    end
+    it 'can rate always' do
+      expect(policy.can_rate?).to be_true
     end
   end
 end

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature 'User creats book' do
+  background do
+    sign_in
+  end
+
   scenario 'with valid info' do
     visit '/books/new'
     fill_in_form_with isbn: '000-00-01', title: 'Awesome book'
