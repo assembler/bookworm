@@ -9,4 +9,19 @@ describe Reading do
     it { should     have_valid(:rating).when(1, 2, 3, 4, 5) }
     it { should_not have_valid(:rating).when(0, 1.5, 6) }
   end
+
+  describe '#username' do
+    it 'delegates to user' do
+      reader = build(:user)
+      reading = build(:reading, user: reader)
+      expect(reading.username).to eq(reader.username)
+    end
+  end
+
+  describe '#rated?' do
+    it 'checks whether there is a rating' do
+      expect(build(:reading, rating: nil)).not_to be_rated
+      expect(build(:reading, rating: 5)).to be_rated
+    end
+  end
 end

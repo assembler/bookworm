@@ -11,4 +11,12 @@ class Reading < ActiveRecord::Base
     greater_than_or_equal_to: RATINGS.min,
     less_than_or_equal_to: RATINGS.max,
   }
+
+  def username
+    user.username
+  end
+
+  def rated?
+    rating.present?
+  end
 end

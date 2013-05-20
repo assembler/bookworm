@@ -1,0 +1,4 @@
+= simple_form_for reading, html: { class: 'form-vertical' } do |form|
+  = form.input :book_id, as: :hidden
+  = form.input :rating, collection: Reading::RATINGS, as: :radio_buttons
+  = form.submit 'Rate it', class: 'btn btn-success'

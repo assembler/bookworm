@@ -16,5 +16,6 @@ FactoryGirl.define do
   factory :reading do
     user
     book
+    rating { Reading::RATINGS.to_a.push(nil).sample }
   end
 end

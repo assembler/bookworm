@@ -5,5 +5,13 @@
     %p
       %small ISBN: #{@book.isbn}
 
-%section.readings
-  Read by: ....
+- unless @reader.read?(@book)
+  %p.pull-right
+    = link_to 'I have read this book', book_readings_path(@book), method: :post, class: 'btn btn-info'
+
+- unless @readings.empty?
+  %section.readings.well
+    %h4 Read by:
+    %ul
+      - @readings.each do |reading|
+        %li= render reading
