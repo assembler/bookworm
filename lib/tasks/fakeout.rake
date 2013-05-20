@@ -1,5 +1,4 @@
 require 'factory_girl_rails'
-# require_relative '../../spec/factories'
 
 namespace :fakeout do
   task clean: :environment do
