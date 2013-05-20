@@ -12,6 +12,8 @@ gem 'simple_form', '~> 2.1.0'
 gem 'kaminari', '~> 0.14.1'
 gem 'strong_parameters', '~> 0.2.1'
 
+gem 'thin'
+
 # required in all environments because used in rake tasks
 gem 'ffaker'
 gem 'factory_girl_rails', '~> 4.0'

@@ -6,13 +6,13 @@ feature 'User creats book' do
   end
 
   scenario 'with valid info' do
-    visit '/books/new'
+    visit new_book_path
     fill_in_form_with isbn: '000-00-01', title: 'Awesome book'
     expect(page).to have_content('Awesome book')
   end
 
   scenario 'with invalid info' do
-    visit '/books/new'
+    visit new_book_path
     fill_in_form_with isbn: '000-00-01', title: ''
     expect(page).to have_content("can't be blank")
   end
