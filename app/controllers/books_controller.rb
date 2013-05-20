@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.page(params[:page]).per(30)
+    @books = @books.includes(:readings)
     @books = @books.where(isbn: params[:isbn]) if params[:isbn].present?
   end
 

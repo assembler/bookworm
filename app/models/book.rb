@@ -5,6 +5,6 @@ class Book < ActiveRecord::Base
   has_many :readings
 
   def readings_count
-    readings.count
+    readings.size
   end
 end
