@@ -11,10 +11,10 @@ feature 'User lists books' do
   end
 
   scenario 'spread accross multiple pages' do
-    books = create_list(:book, 26)
+    books = create_list(:book, 31)
 
     visit '/books'
-    expect(page).to match_exactly 25, 'article.book'
+    expect(page).to match_exactly 30, 'article.book'
 
     within 'section.books' do
       click_link 'Next'
