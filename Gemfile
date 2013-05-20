@@ -12,6 +12,10 @@ gem 'simple_form', '~> 2.1.0'
 gem 'kaminari', '~> 0.14.1'
 gem 'strong_parameters', '~> 0.2.1'
 
+# required in all environments because used in rake tasks
+gem 'ffaker'
+gem 'factory_girl_rails', '~> 4.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,11 +31,9 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.0'
   gem 'letter_opener'
-  gem 'ffaker'
 end
 
 group :test do
-  gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara', '~> 2.0.0'
   gem 'valid_attribute'
 end
