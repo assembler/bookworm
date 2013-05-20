@@ -5,7 +5,7 @@
     %p
       %small ISBN: #{@book.isbn}
 
-- unless @reader.read?(@book)
+- if user_signed_in? && !@reader.read?(@book)
   %p.pull-right
     = link_to 'I have read this book', book_readings_path(@book), method: :post, class: 'btn btn-info'
 

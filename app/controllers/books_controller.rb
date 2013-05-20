@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+
   def index
     @books = Book.page(params[:page]).per(30)
     @books = @books.includes(:readings)
